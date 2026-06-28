@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1.0" >
+        <title>Html Document</title>
+        <style>
+            /* write styleshere */
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                nav {
+                    background-color:#333;
+                    padding:20px;
+                    display:flex;
+                    position:fixed;
+                    top:0;
+                    width:100%;
+                }
+
+                nav a {
+                    color:white;
+                    text-decoration:none;
+                    margin-right:20px;
+                }
+
+                #welcomeBanner {
+                    background-color: blue;
+                    color:white;
+                    padding:15px;
+                    margin:20px;
+                    margin-top:80px;
+                    text-align:center;
+                    flex-direction: column;
+                }
+
+
+                .highlight {
+                    background-color:yellow;
+                    padding:15px;
+                    margin:20px;
+                    text-align:center;
+                }
+
+                table {
+                    border-collapse:collapse;
+                    margin-top:20px;
+                }
+
+                .event-image {
+                    width: 200px;
+                    height: 150px;
+                    border: 3px solid black;
+                }
+
+                td {
+                    padding:10px;
+                    text-align:center;
+                }
+
+                #events {
+                    text-align:center;
+                    justify-self: center;
+                }
+
+                .registerForm {
+                    text-align: center;
+                }
+                form {
+                    justify-self: center;
+                    margin-top: 20px;
+                    padding: 20px;
+                    border: 2px solid gray;
+                    width: 500px;
+                }
+                input,select,textarea {
+                    width:100%;
+                    padding-top:10px;
+                    padding-bottom:10px;
+                    margin-top:10px;
+                }
+                .promoVideo {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                #nearbyEvents {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                #contact {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                footer {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                
+
+        </style>
+
+    </head>
+    <body>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#Events">Events</a>
+            <a href="#Contact">Contact</a>
+            <a href="help.html" target="_blank">Help</a>
+
+        </nav>
+
+        <main>
+            <section id="Home">
+
+                <div id="welcomeBanner">
+                    <h1>Welcome User!</h1>
+                    <span style="color: red; font-weight: bold;">
+                        a special offer for you!
+                    </span>
+                </div>
+
+                <div class="highlight">
+                    <p>Don't miss out on this amazing opportunity!</p>
+                </div>
+            </section>
+
+            <section id="events">
+
+                <h2>Community Events Gallery</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 1" class="event-image">
+                            <p>Event 1</p>
+                        </td>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 2" class="event-image">
+                            <p>Event 2</p>
+                        </td>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 3" class="event-image">
+                            <p>Event 3</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 4" class="event-image">
+                            <p>Event 4</p>
+                        </td>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 5" class="event-image">
+                            <p>Event 5</p>
+                        </td>
+                        <td>
+                            <img src="https://picsum.photos/200/300" alt="Event 6" class="event-image">
+                            <p>Event 6</p>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="registerForm">
+                <h1>Registration Form</h1>
+                <form id="registrationForm">
+                    
+                        <input type="text" id="name" placeholder="Enter Name" required>
+                    
+                        <input type="email" id="email" placeholder="Enter Email" required>
+                   
+                        <input type="text" id="number" placeholder="Enter Phone Number" required>
+                   
+                        <input type="date" id="date" name="date" required>
+                   
+                        <select id="event" name="event" required>
+                            <option value="">Select an event</option>
+                            <option value="event1">Event 1</option>
+                            <option value="event2">Event 2</option>
+                            <option value="event3">Event 3</option>
+                        </select>
+                  
+                        <textarea id="message" placeholder="Enter Message" name="message" rows="4" cols="50"></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+
+            <section class="promoVideo">
+                <h2>Event Promo Video</h2>
+                <video width="500px" height="fit-content" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </section>
+
+            <section id="nearbyEvents">
+
+                <h2>Find Nearby Events</h2>
+
+                <button>
+                    Find Nearby Events
+                </button>
+
+            </section>
+
+            <section id="contact">
+
+                <h2>Contact Us</h2>
+
+                <p class="highlight">
+                    Email: support@communityportal.com
+                </p>
+
+            </section>
+
+
+        </main>
+
+        <footer>
+            <p>
+                Local Community Event Portal
+            </p>
+        </footer>
+    </body>
+</html>

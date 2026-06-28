@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Local Community Event Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        #welcomeBanner {
+            background-color: blue;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .event-image {
+            width: 200px;
+            height: 150px;
+            border: 3px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid gray;
+            width: 400px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        video {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Main -->
+
+    <main>
+
+        <!-- Home Section -->
+
+        <section id="home">
+
+            <div id="welcomeBanner">
+                Welcome Resident!
+                <span style="color: red; font-weight: bold;">
+                    Special Offer: Free Entry for First 50 Users!
+                </span>
+            </div>
+
+            <p class="highlight">
+                Participate in exciting community activities.
+            </p>
+
+        </section>
+
+        <!-- Events Section -->
+
+        <section id="events">
+
+            <h2>Community Events Gallery</h2>
+
+            <table border="1">
+
+                <caption>Past Community Events</caption>
+
+                <tr>
+
+                    <td>
+                        <img src="images/event1.jpg"
+                            alt="Music Event"
+                            title="Music Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Music Festival</p>
+                    </td>
+
+                    <td>
+                        <img src="images/event2.jpg"
+                            alt="Food Event"
+                            title="Food Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Food Carnival</p>
+                    </td>
+
+                    
+                    <td>
+                        <img src="images/event3.jpg"
+                            alt="Sports Event"
+                            title="Sports Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Sports Meet</p>
+                    </td>
+
+                </tr>
+                 
+                <tr>
+
+                    <td>
+                        <img src="images/event4.jpg"
+                            alt="Art Event"
+                            title="Art Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Art Exhibition</p>
+                    </td>
+
+                    <td>
+                        <img src="images/event5.jpg"
+                            alt="Dance Event"
+                            title="Dance Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Dance Program</p>
+                    </td>
+
+                    <td>
+                        <img src="images/event6.jpg"
+                            alt="Book Event"
+                            title="Book Event"
+                            class="event-image"
+                            ondblclick="enlargeImage(this)">
+                        <p>Book Fair</p>
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </section>
+
+        <!-- Registration Section -->
+
+        <section>
+
+            <h2>Event Registration Form</h2>
+
+            <form id="registrationForm">
+
+                <input type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                    autofocus>
+
+                <input type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+                <input type="text"
+                    id="phone"
+                    placeholder="Enter phone number"
+                    onblur="validatePhone()">
+
+                <input type="date"
+                    id="date"
+                    required>
+
+                <select id="eventType"
+                    onchange="displayFee()">
+
+                    <option value="">Select Event</option>
+                    <option value="Music">Music</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Food">Food</option>
+
+                </select>
+
+                <p id="feeDisplay"></p>
+
+                <textarea id="message"
+                    placeholder="Enter message"></textarea>
+
+                <textarea id="feedback"
+                    placeholder="Enter feedback"
+                    onkeyup="countCharacters()"></textarea>
+
+                <p id="charCount">Characters: 0</p>
+
+                <button type="submit"
+                    onclick="showConfirmation()">
+                    Submit
+                </button>
+
+                <output id="outputMessage"></output>
+
+            </form>
+
+        </section>
+
+        <!-- Video Section -->
+
+        <section>
+
+            <h2>Event Promo Video</h2>
+
+            <video width="400"
+                controls
+                oncanplay="videoReady()">
+
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <p id="videoMessage"></p>
+
+        </section>
+
+        <!-- Geolocation Section -->
+
+        <section>
+
+            <h2>Find Nearby Events</h2>
+
+            <button onclick="findLocation()">
+                Find Nearby Events
+            </button>
+
+            <p id="location"></p>
+
+        </section>
+
+        <!-- Contact Section -->
+
+        <section id="contact">
+
+            <h2>Contact Us</h2>
+
+            <p class="highlight">
+                Email: support@communityportal.com
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            Local Community Event Portal
+        </p>
+
+    </footer>
+
+    <script>
+
+        // Phone Validation
+
+        function validatePhone() {
+
+            let phone = document.getElementById("phone").value;
+
+            if (phone.length !== 10) {
+                alert("Phone number must be 10 digits");
+            }
+
+        }
+
+        // Event Fee Display
+
+        function displayFee() {
+
+            let event = document.getElementById("eventType").value;
+
+            let fee = "";
+
+            if (event === "Music") {
+                fee = "Music Event Fee: Rs.200";
+            }
+
+            else if (event === "Sports") {
+                fee = "Sports Event Fee: Rs.150";
+            }
+
+            else if (event === "Food") {
+                fee = "Food Event Fee: Rs.100";
+            }
+
+            document.getElementById("feeDisplay").innerHTML = fee;
+
+            localStorage.setItem("preferredEvent", event);
+
+        }
+
+        // Submit Confirmation
+
+        function showConfirmation() {
+
+            document.getElementById("outputMessage").value =
+                "Registration submitted successfully";
+
+            alert("Form Submitted");
+
+        }
+
+        // Image Enlarge
+
+        function enlargeImage(image) {
+
+            image.style.width = "300px";
+            image.style.height = "250px";
+
+        }
+
+        // Character Count
+
+        function countCharacters() {
+
+            let text =
+                document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+                "Characters: " + text.length;
+
+        }
+
+        // Video Ready Message
+
+        function videoReady() {
+
+            document.getElementById("videoMessage").innerHTML =
+                "Video ready to play";
+
+        }
+
+        // Warning Before Leaving Page
+
+        window.onbeforeunload = function () {
+
+            return "Form is not completed. Are you sure you want to leave?";
+
+        }
+
+        // Load Preferred Event
+
+        window.onload = function () {
+
+            let savedEvent =
+                localStorage.getItem("preferredEvent");
+
+            if (savedEvent) {
+
+                document.getElementById("eventType").value =
+                    savedEvent;
+
+            }
+
+        }
+
+        // Clear Storage
+
+        function clearPreferences() {
+
+            localStorage.clear();
+
+            sessionStorage.clear();
+
+            alert("Preferences Cleared");
+
+        }
+
+        // Geolocation
+
+        function findLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+                    showError,
+
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 5000
+                    }
+
+                );
+
+            }
+
+            else {
+
+                alert("Geolocation not supported");
+
+            }
+
+        }
+
+        function showPosition(position) {
+
+            document.getElementById("location").innerHTML =
+                "Latitude: " +
+                position.coords.latitude +
+                "<br>Longitude: " +
+                position.coords.longitude;
+
+        }
+
+        function showError(error) {
+
+            if (error.code == 1) {
+                alert("Permission Denied");
+            }
+
+            else if (error.code == 3) {
+                alert("Request Timed Out");
+            }
+
+            else {
+                alert("Error Getting Location");
+            }
+
+        }
+
+        console.log("Portal Loaded Successfully");
+
+    </script>
+
+    <button onclick="clearPreferences()">
+        Clear Preferences
+    </button>
+
+</body>
+
+</html>

@@ -1,4 +1,5 @@
 public class Logger {
+
     private static Logger instance;
 
     private Logger() {
@@ -10,5 +11,9 @@ public class Logger {
             instance = new Logger();
         }
         return instance;
+    }
+
+    public void log(String message) {
+        System.out.println("LOG: "+message);
     }
 }

@@ -1,6 +1,7 @@
 public class ProxyImage implements Image {
 
     private RealImage realImage;
+    
     private String fileName;
 
     public ProxyImage(String fileName) {
@@ -10,12 +11,9 @@ public class ProxyImage implements Image {
     @Override
     public void display() {
 
-        // Lazy Initialization
         if (realImage == null) {
             realImage = new RealImage(fileName);
         }
-
-        // Cached object is reused
         realImage.display();
     }
 }

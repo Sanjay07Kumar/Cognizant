@@ -1,0 +1,11 @@
+{
+  "java.project.sourcePaths": [
+    "Spring Core and Maven/src/main/java"
+  ],
+  "java.project.referencedLibraries": [
+    "Spring Core and Maven/target/**/*.jar"
+  ],
+  "maven.projects": [
+    "Spring Core and Maven/pom.xml"
+  ]
+}
